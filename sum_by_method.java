@@ -10,6 +10,6 @@ public class sum_by_method {
         for(int x1:x){
             total = total + x1;
         }
-        System.out.println("The Sum :"+total);
+        System.out.println("The Sum :"+total); //Here is the Total
     }
 }
