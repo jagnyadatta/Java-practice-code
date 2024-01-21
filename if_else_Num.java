@@ -6,14 +6,14 @@ public class if_else_Num{
         int b = sc.nextInt();
 
         if(a == b ){
-            System.out.println("Equal");
+            System.out.println("Equal"); //Show Equal when two numbers are same 
         }
         else {
             if(a>b){
-                System.out.println("a is greater");
+                System.out.println("a is greater");//Show greater when a is greater than b
             }
             else{
-                System.out.println("a is smaller");
+                System.out.println("a is smaller");//Show smaller when a is smaller than b
             }
         }
     }
