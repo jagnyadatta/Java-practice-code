@@ -16,6 +16,10 @@ public class condition {
         {
             System.out.println("Bonjour");
         }
+        else if(button == 4)
+        {
+            System.out.println("Hii");
+        }
         else
         {
             System.out.println("Invalid Button");
