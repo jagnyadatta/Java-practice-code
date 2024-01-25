@@ -4,7 +4,7 @@ public class if_else_Num{
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
         int b = sc.nextInt();
-
+        sc.close();
         if(a == b ){
             System.out.println("Equal"); //Show Equal when two numbers are same 
             System.out.println("You Entered Same Number"); //Show Equal when two numbers are same 
