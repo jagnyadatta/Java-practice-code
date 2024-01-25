@@ -5,6 +5,7 @@ public class addTwoNum{
         System.out.println("Enter The Two Numbers :");
         int a = sc.nextInt();
         int b = sc.nextInt();
+        sc.close();
         int sum = a + b;
         System.out.println(sum);
         
