@@ -7,6 +7,7 @@ public class if_else_Num{
 
         if(a == b ){
             System.out.println("Equal"); //Show Equal when two numbers are same 
+            System.out.println("You Entered Same Number"); //Show Equal when two numbers are same 
         }
         else {
             if(a>b){
