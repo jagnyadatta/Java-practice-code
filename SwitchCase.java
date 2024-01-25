@@ -4,7 +4,7 @@ public class SwitchCase {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter A Button");
         int Button = scan.nextInt();
-
+        scan.close();
         //Switch Statment started
 
         switch(Button){
