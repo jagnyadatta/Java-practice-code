@@ -4,6 +4,6 @@ public class doWhileLoop {
         do{                                //do statements
             System.out.println(i);
             i = i +1;        //i++
-        }while(i<11);
+        }while(i<11);                       //while condition given
     }
 }
