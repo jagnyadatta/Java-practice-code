@@ -7,5 +7,8 @@ public class java2sm {
         System.out.println("You Entered :"+sc);
         Scanner sp = new Scanner(System.in);
         System.out.println("You Entered :"+sp);
+
+        sc.close();
+        sp.close();
     }
 }
