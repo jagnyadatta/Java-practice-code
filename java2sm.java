@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Scanner;  //java package
 
 public class java2sm {
     public static void main(String[] args) {
