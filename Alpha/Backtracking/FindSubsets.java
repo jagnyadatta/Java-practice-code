@@ -1,4 +1,4 @@
-public class BackTrackting {
+public class FindSubsets {
     public static void findSubset(String str, String ans, int i){
         //base case 
         if(i == str.length()){
