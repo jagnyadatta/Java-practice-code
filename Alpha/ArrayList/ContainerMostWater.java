@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class ContainerMostWater {
-    //BRUTE FORCE APPROACH
+    //BRUTE FORCE APPROACH  O(n^2)
 
     // public static int maxArea(ArrayList<Integer> height) {
     //     int maxWater = 0;
@@ -17,7 +17,7 @@ public class ContainerMostWater {
     //     return maxWater;
     // }
 
-    //LINEAR APPROACH (2 POINTER APPROACH)
+    //LINEAR APPROACH (2 POINTER APPROACH) O(n)
     public static int maxArea(ArrayList<Integer> height){
         int maxWater = 0;
         int left = 0;
