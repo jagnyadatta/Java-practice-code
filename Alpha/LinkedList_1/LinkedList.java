@@ -57,17 +57,32 @@ public class LinkedList {
         }
         System.out.println("null");
     }
+    
+    //Add Node in middle of the LL
+    public void add(int idx, int data){
+        if(idx == 0){
+            addFirst(data);
+            return;
+        }
+        Node newNode = new Node(data);
+        Node temp = head;
+        int i = 0;
+        while(i<idx-1){
+            temp = temp.next;
+            i++;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
-        ll.printLL();
         ll.addFirst(2);
-        ll.printLL();
         ll.addFirst(1);
-        ll.printLL();
         ll.addLast(3);
-        ll.printLL();
         ll.addLast(4);
+        ll.add(2,8);
+        ll.add(0,0);
         ll.printLL();
     }
 }
