@@ -11,11 +11,13 @@ public class LinkedList {
     //head and tail of Linked List.
     public static Node head;   
     public static Node tail;
+    public static int size;
 
     //Create AddFirst Node:
     public void addFirst(int data){
         //step-1 = create a Node
         Node newNode = new Node(data);
+        size++;
         //check head is null or not
         if(head == null){
             head = tail = newNode;
@@ -31,6 +33,7 @@ public class LinkedList {
     public void addLast(int data){
         //create Node
         Node newNode = new Node(data);
+        size++;
         //check head is null or not / LL exist or not
         if(head == null){
             head = tail = newNode;
@@ -65,6 +68,7 @@ public class LinkedList {
             return;
         }
         Node newNode = new Node(data);
+        size++;
         Node temp = head;
         int i = 0;
         while(i<idx-1){
@@ -75,14 +79,94 @@ public class LinkedList {
         temp.next = newNode;
     }
 
+    //Remove Frist Node from LL
+    public int removeFirst(){
+        if(size == 0){
+            System.out.println("LL is Empty");
+            return Integer.MIN_VALUE;
+        }else if(size == 1){
+            int data = head.data;
+            head = tail = null;
+            size = 0;
+            return data;
+        }
+        int data = head.data;
+        head = head.next;
+        size--;
+        return data;
+    }
+    //Remove Last Node From LL
+    public int removeLast(){
+        if(size == 0){
+            System.out.println("LL is Empty");
+            return Integer.MIN_VALUE;
+        }else if(size == 1){
+            int data = head.data;
+            head = tail = null;
+            size = 0;
+            return data;
+        }
+        Node prev = head;
+        for(int i=0; i<size-2;i++){
+            prev = prev.next;
+        }
+        int val = prev.next.data;
+        prev.next = null;
+        tail = prev;
+        size--;
+        return val;
+    }
+
+    //Search position of a Node Using iterative;
+    public int itrSearch(int key){
+        Node temp = head;
+        int i = 0;
+        while(temp != null){
+            if(temp.data == key){
+                return i;
+            }
+            temp = temp.next;
+            i++;
+        }
+        //if key not found
+        return -1;
+    }
+    
+    //Search position of a Node Using Recursive:
+    public int recSearch(int key){
+        return helper(head, key);
+    }
+    //helper function for recSearch
+    public int helper(Node head, int key){
+        if(head == null){
+            return -1;
+        }
+        if(head.data == key){
+            return 0;
+        }
+        int idx = helper(head.next, key);
+        if(idx == -1){
+            return -1;
+        }
+        return idx+1;
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         ll.addFirst(2);
         ll.addFirst(1);
-        ll.addLast(3);
         ll.addLast(4);
-        ll.add(2,8);
-        ll.add(0,0);
+        ll.addLast(5);
+        ll.add(2,3);
         ll.printLL();
+        // System.out.println(ll.size);
+        // ll.removeFirst();
+        // ll.printLL();
+        // System.out.println(ll.size);
+        // ll.removeLast();
+        // ll.printLL();
+        // System.out.println(ll.size);
+        System.out.println(ll.recSearch(2));
+        System.out.println(ll.recSearch(6));
     }
 }
