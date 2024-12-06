@@ -171,24 +171,40 @@ public class LinkedList {
 
     // Remove nth node form the end of LL:
     public void removeNthFromEnd(int n) {
-        int size = 0;
-        Node temp = head;
-        while (temp != null) {
-            temp = temp.next;
-            size++;
+        //ITERABLE APPROACH
+        // int size = 0;
+        // Node temp = head;
+        // while (temp != null) {
+        //     temp = temp.next;
+        //     size++;
+        // }
+        // if (n == size) {
+        //     head = head.next;
+        //     return;
+        // }
+        // int i = 1;
+        // int iToFind = size - n;
+        // Node prev = head;
+        // while (i < iToFind) {
+        //     prev = prev.next;
+        //     i++;
+        // }
+        // prev.next = prev.next.next;
+        // return;
+
+        //TWO POINTER APPROACH
+        Node dummy = new Node(0);
+        dummy.next = head;
+        Node first = dummy;
+        Node second = dummy;
+        for(int i = 0; i<=n; i++){
+            first = first.next;
         }
-        if (n == size) {
-            head = head.next;
-            return;
+        while(first != null){
+            first = first.next;
+            second = second.next;
         }
-        int i = 1;
-        int iToFind = size - n;
-        Node prev = head;
-        while (i < iToFind) {
-            prev = prev.next;
-            i++;
-        }
-        prev.next = prev.next.next;
+        second.next = second.next.next;
         return;
     }
 
