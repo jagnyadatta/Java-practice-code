@@ -220,7 +220,7 @@ public class LinkedList {
     }
     
     //Check if LL is Palindrome or Not:
-    public static boolean isPalindrome() {
+    public boolean isPalindrome() {
         if(head == null && head.next == null){
             return true;
         }
@@ -266,7 +266,8 @@ public class LinkedList {
         // System.out.println(ll.size);
         // System.out.println(ll.recSearch(2));
         // System.out.println(ll.recSearch(6));
-        ll.removeNthFromEnd(3);
-        ll.printLL();
+        // ll.removeNthFromEnd(3);
+        // ll.printLL();
+        System.out.println(ll.isPalindrome());
     }
 }
