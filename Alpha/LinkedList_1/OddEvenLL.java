@@ -15,13 +15,13 @@ public class OddEvenLL {
         while(temp != null){
             if(temp.data % 2 == 0){
                 Node t = new Node(temp.data);
-                odd.next = t;
-                odd = t;
+                even.next = t;
+                even = t;
                 temp = temp.next;
             }else{
                 Node t = new Node(temp.data);
-                even.next = t;
-                even = t;
+                odd.next = t;
+                odd = t;
                 temp = temp.next; 
             }
         }
