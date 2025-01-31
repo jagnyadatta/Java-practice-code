@@ -249,6 +249,32 @@ public class LinkedList {
         return true;
     }
 
+    //remove cycle in a LL
+    public static void removeCycle(){
+        Node slow = head;
+        Node fast = head;
+        boolean cycle = false;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(fast == slow){
+                cycle = true;
+                break;
+            }
+        }
+        if(!cycle){
+            return;
+        }
+        slow = head;
+        Node prev = fast;
+        while(fast != slow){
+            slow = slow.next;
+            prev = fast;
+            fast = fast.next;
+        }
+        prev.next = null;
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         ll.addFirst(2);
