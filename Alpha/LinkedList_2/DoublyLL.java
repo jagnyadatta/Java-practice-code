@@ -100,19 +100,19 @@ public class DoublyLL{
     }
 
     public static void main(String[] args){
-        DoublyLL dll = new DoublyLL();
-        dll.addFirst(10);
-        dll.addFirst(10);
+        // DoublyLL dll = new DoublyLL();
+        addFirst(10);
+        addFirst(10);
         // dll.printList();
-        dll.addLast(3);
+        addLast(3);
         // dll.printList();
-        dll.addFirst(9);
-        dll.printList();
-        dll.removeFirst();
-        dll.printList();
+        addFirst(9);
+        printList();
+        removeFirst();
+        printList();
         // dll.removeLast();
         // dll.printList();
-        dll.reverse();
-        dll.printList();
+        reverse();
+        printList();
     }
 }
