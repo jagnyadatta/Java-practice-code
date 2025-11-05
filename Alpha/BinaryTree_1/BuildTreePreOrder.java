@@ -43,6 +43,13 @@ public class BuildTreePreOrder {
             preOrder(root.right);
             System.out.print(root.data + " ");
         }
+        //HEIGHT OF TREE
+        public int height(Node root){
+            if(root == null) return 0;
+            int lh = height(root.left);
+            int rh = height(root.right);
+            return Math.max(lh, rh) + 1; 
+        }
     }
     public static void main(String[] args){
         int[] nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
@@ -54,5 +61,7 @@ public class BuildTreePreOrder {
         tree.inOrder(root);
         System.out.println();
         tree.postOrder(root);
+        System.out.println();
+        System.out.println("Height of Tree: "+ tree.height(root));
     }
 }
