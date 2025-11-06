@@ -50,6 +50,13 @@ public class BuildTreePreOrder {
             int rh = height(root.right);
             return Math.max(lh, rh) + 1; 
         }
+        //COUNT NODES
+        public int countNodes(Node root){
+            if(root == null) return 0;
+            int lc = countNodes(root.left);
+            int rc = countNodes(root.right);
+            return lc + rc + 1;
+        }
     }
     public static void main(String[] args){
         int[] nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
@@ -63,5 +70,7 @@ public class BuildTreePreOrder {
         tree.postOrder(root);
         System.out.println();
         System.out.println("Height of Tree: "+ tree.height(root));
+        System.out.println();
+        System.out.println("Total Nodes : "+ tree.countNodes(root));
     }
 }
