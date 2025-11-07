@@ -58,14 +58,36 @@ public class BuildTreePreOrder {
             return lc + rc + 1;
         }
         //FIND DIAMETER
-        public int diameter(Node root){
+        public int diameter_nSquare(Node root){   //O(N^2)
             if(root == null) return 0;
-            int ldiam = diameter(root.left);
-            int rdiam = diameter(root.right);
-            int lh = height(root);
-            int rh = height(root);
+            int ldiam = diameter_nSquare(root.left);
+            int rdiam = diameter_nSquare(root.right);
+            int lh = height(root.left);
+            int rh = height(root.right);
             int selfdiam = lh + rh + 1;
             return Math.max(selfdiam, Math.max(ldiam, rdiam));
+        }
+
+        //Static class for storing info
+        public static class Info{
+            int diam;
+            int ht;
+            public Info(int diam, int ht){
+                this.diam = diam;
+                this.ht = ht;
+            }
+        }
+
+        //DIAMETER FUNCTION IN === O(N)
+        public Info diameter(Node root){
+            if(root == null){
+                return new Info(0, 0);
+            }
+            Info leftInfo = diameter(root.left);
+            Info rightInfo = diameter(root.right);
+            int diam = Math.max(Math.max(leftInfo.diam, rightInfo.diam), leftInfo.ht + rightInfo.ht + 1);
+            int height = Math.max(leftInfo.ht, rightInfo.ht) + 1;
+            return new Info(diam, height);
         }
     }
     public static void main(String[] args){
@@ -84,6 +106,10 @@ public class BuildTreePreOrder {
         System.out.println("Total Nodes : "+ tree.countNodes(root));
 
         System.out.println();
-        System.out.println("Diameter : "+ tree.diameter(root));
+        System.out.println("Diameter : "+ tree.diameter_nSquare(root));
+
+        System.out.println();
+        BuildTreePreOrder.BinaryTree.Info ans = tree.diameter(root);
+        System.out.println("Diameter: "+ans.diam + " Height: "+ans.ht);
     }
 }
