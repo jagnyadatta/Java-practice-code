@@ -40,7 +40,7 @@ public class BuildTreePreOrder {
         public void postOrder(Node root){
             if(root==null) return;
             postOrder(root.left);
-            preOrder(root.right);
+            postOrder(root.right);
             System.out.print(root.data + " ");
         }
         //HEIGHT OF TREE
