@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BuildTreePreOrder {
     static class Node {
         int data;
@@ -42,6 +45,33 @@ public class BuildTreePreOrder {
             postOrder(root.left);
             postOrder(root.right);
             System.out.print(root.data + " ");
+        }
+        //LEVER-ORDER TRAVERSAL
+        public void levelOrder(Node root){
+            if(root == null) return;
+            Queue<Node> q = new LinkedList<>();
+            q.add(root);
+            q.add(null);
+
+            while(!q.isEmpty()){
+                Node currNode = q.remove();
+                if(currNode == null){
+                    System.out.println();
+                    if(q.isEmpty()){
+                        break;
+                    }else{
+                        q.add(null);
+                    }
+                }else{
+                    System.out.print(currNode.data);
+                    if(currNode.left != null){
+                        q.add(currNode.left);
+                    }
+                    if(currNode.right != null){
+                        q.add(currNode.right);
+                    }
+                }
+            }
         }
         //HEIGHT OF TREE
         public int height(Node root){
@@ -100,6 +130,9 @@ public class BuildTreePreOrder {
         tree.inOrder(root);
         System.out.println();
         tree.postOrder(root);
+        System.out.println();
+        System.out.println("======= Level Order =======");
+        tree.levelOrder(root);
         System.out.println();
         System.out.println("Height of Tree: "+ tree.height(root));
         System.out.println();
